@@ -1,5 +1,5 @@
 <template>
-    <form @submit="submitContact" :validation-schema="contactFormSchema">
+    <Form @submit="submitContact" :validation-schema="contactFormSchema">
         <div class="form-group">
             <label for="name">Tên</label>
             <field name="name" type="text" class="form-control" v-model="contactLocal.name" />
@@ -38,7 +38,7 @@
                 Thoát
             </button>
         </div>
-    </form>
+    </Form>
 </template>
 <script>
     import * as yup from "yup";
@@ -84,7 +84,7 @@
                 this.$emit("submit:contact", this.contactLocal);
             },
             deleteContact() {
-                this.$emit("delete:contact", this.contactLocal.id);
+                this.$emit("delete:contact", this.contactLocal._id);
             },
             Cancel(){
                 const reply = window.confirm('You have unsaved changes! Do you want to leave?')
